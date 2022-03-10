@@ -63,8 +63,10 @@ def create_answers
   quizzes.each do |quiz|
     3.times do
       user = User.all.sample
+      quiz_creator = quiz.user
       answer = question.answers.create!(result: "Well", user_id: user.id, question_id: question.id)
-          puts "User with id #{user.id} created a quiz with id #{quiz.id}, with question: #{question.question} with options #{question.body}. User with id #{user.id} answered #{answer.result}"
+      answer_creator = answer.user
+          puts "User with id #{quiz_creator.id} created a quiz with id #{quiz.id}, with question: #{question.question} with options #{question.body}. User with id #{answer_creator.id} answered #{answer.result} on a question with id #{question.id}"
 
       end
     end
