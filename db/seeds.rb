@@ -3,7 +3,7 @@ def seed
   create_users
   create_quizzes
   create_questions
-  # create_answers
+  create_answers
 end
 
 def reset_db
@@ -15,7 +15,7 @@ end
 def create_users
   i = 0
 
-  10.times do
+  3.times do
     user_data = {
       email: "user_#{i}@email.com",
       password: 'testtest',
@@ -51,21 +51,24 @@ def create_questions
       user = User.all.sample
       question = quiz.questions.create!(user_id: user.id, quiz_id: quiz.id, question: "How r u doing?", body: "Well or not?")
       puts "Question: #{question.question} with options #{question.body} was genereated by user with id #{user.id} in quiz with id #{quiz.id}"
-    end
+      end
+  end
 end
-end
-# НЕ РАБОТАЕТ
-# def create_answers
-#     user = User.all.sample(2)
-#     quizzes = Quiz.all
-#     question = Question.all
-#     answer = Answer.create!(result: "Well", user_id: user.id, question_id: question.id)
-#
-#     users[0].quizzes.create!(title: "Quiz app info", description: "quiz about is it ok to make app for quiz", requested_time: "5")
-#     users[0].quiz_questions.create!(user_id: user.id, quiz_id: quiz.id, question: "How r u doing?", body: "Well or not?")
-#     users[1].user_answers.create!(result: answer.result, user_id: user.id, question_id: question_id)
-#     puts "User with id #{user[0].id} created a quiz with #{quiz.id}, with question: #{question.question} with options #{question.body}. User with id #{user[1].id} answered #{answer.result}"
-#
 
+def create_answers
+  quizzes = Quiz.all
+  questions = Question.all
+
+  questions.each do |question|
+  quizzes.each do |quiz|
+    3.times do
+      user = User.all.sample
+      answer = question.answers.create!(result: "Well", user_id: user.id, question_id: question.id)
+          puts "User with id #{user.id} created a quiz with id #{quiz.id}, with question: #{question.question} with options #{question.body}. User with id #{user.id} answered #{answer.result}"
+
+      end
+    end
+  end
+end
 
 seed
