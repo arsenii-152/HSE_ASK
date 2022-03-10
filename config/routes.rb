@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'answers', to: 'answers#index'
+  get 'questions', to: 'questions#index'
+  get 'quizes', to: 'quizes#index'
+  get 'users', to: 'users#index'
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
