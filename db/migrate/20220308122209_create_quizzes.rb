@@ -5,7 +5,6 @@ class CreateQuizzes < ActiveRecord::Migration[6.1]
       t.text :description
       t.integer :requested_time
       t.integer :user_id
-      t.integer :question_id
 
       t.timestamps
     end
