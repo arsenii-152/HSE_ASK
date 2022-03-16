@@ -4,29 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Quizes</title>
+  <title>Answers</title>
 </head>
 <body>
-<h1>Quizes</h1>
+<h1>Answers</h1>
 <table>
   <thead>
   <tr>
-    <th>title</th>
-    <th>description</th>
-    <th>requested_time</th>
+    <th>result</th>
     <th>user_id</th>
     <th>question_id</th>
   </tr>
   </thead>
 
   <tbody>
-  <% @quizes.each do |quiz| %>
+  <% @text_answers.each do |text_answer| %>
     <tr>
-      <td><%= quiz.title %></td>
-      <td><%= quiz.description %></td>
-      <td><%= quiz.requested_time %></td>
-      <td><%= quiz.user_id %></td>
-      <td><%= quiz.question_id %></td>
+      <td><%= text_answer.text_response %></td>
+      <td><%= text_answer.user_id %></td>
+      <td><%= text_answer.text_question_id %></td>
     </tr>
   <% end %>
   </tbody>

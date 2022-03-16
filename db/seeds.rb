@@ -59,12 +59,12 @@ def create_text_questions
   quiz = Quiz.all.sample
 
   # quizzes.each do |quiz|
-    5.times do
+  5.times do
+
       user = quiz.user
       text_question = quiz.text_questions.create!(user_id: user.id, title: "How r u doing?", field: "type here")
       puts "#{text_question.type} which is: #{text_question.title} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
-    # end
-  end
+    end
 end
 
 def create_text_answers

@@ -4,29 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Quizes</title>
+  <title>Questions</title>
 </head>
 <body>
-<h1>Quizes</h1>
+<h1>Questions</h1>
 <table>
   <thead>
   <tr>
-    <th>title</th>
-    <th>description</th>
-    <th>requested_time</th>
+    <th>question</th>
+    <th>answer</th>
     <th>user_id</th>
-    <th>question_id</th>
+    <th>quiz_id</th>
   </tr>
   </thead>
 
   <tbody>
-  <% @quizes.each do |quiz| %>
+  <% @text_questions.each do |text_question| %>
     <tr>
-      <td><%= quiz.title %></td>
-      <td><%= quiz.description %></td>
-      <td><%= quiz.requested_time %></td>
-      <td><%= quiz.user_id %></td>
-      <td><%= quiz.question_id %></td>
+      <td><%= text_question.title %></td>
+      <td><input type="<%= text_question.field %>" name="" value=""></td>
+      <td><%= text_question.user_id %></td>
+      <td><%= text_question.quiz_id %></td>
     </tr>
   <% end %>
   </tbody>
