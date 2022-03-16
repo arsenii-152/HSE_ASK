@@ -19,8 +19,8 @@ def seed
   reset_db
   create_users
   create_quizzes
-  create_questions
-  create_answers
+  create_text_questions
+  create_text_answers
 end
 
 def reset_db
@@ -55,28 +55,27 @@ def create_quizzes
     puts "Quiz created with id #{quiz.id}, name #{quiz.title}, description: #{quiz.description}. Takes #{quiz.requested_time} minutes to pass. Created by user #{quiz.user.name} with id #{quiz.user.id}"
   end
 
-def create_questions
+def create_text_questions
   quiz = Quiz.all.sample
 
   # quizzes.each do |quiz|
     5.times do
       user = quiz.user
-      question = quiz.questions.create!(user_id: user.id, question: "How r u doing?", body: "Well or not?")
-      # Лучше переименовать question.question в title
-      puts "Question: #{question.question} with options #{question.body} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
+      text_question = quiz.text_questions.create!(user_id: user.id, title: "How r u doing?", field: "type here")
+      puts "#{text_question.type} which is: #{text_question.title} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
     # end
   end
 end
 
-def create_answers
+def create_text_answers
   # Найти все вопросы всех пользователей
-  questions = Question.all
+  text_questions = TextQuestion.all
   user = User.all.sample
 
   # Создать для каждого вопроса от каждого пользователя ответ
-  questions.each do |question|
-      answer = question.answers.create!(result: "Well", user_id: user.id)
-      puts "User #{answer.user.name} answered the question with id #{answer.question.id} from quiz with id #{answer.question.quiz.id}. Quiz created by #{question.quiz.user.name}"
+  text_questions.each do |text_question|
+      text_answer = text_question.text_answers.create!(text_response: "Yaix", user_id: user.id)
+      puts "User #{text_answer.user.name} answered '#{text_answer.text_response}' to the question with id #{text_answer.text_question.id} from quiz with id #{text_answer.text_question.quiz.id}. Quiz created by #{text_question.quiz.user.name}"
     end
   end
 
