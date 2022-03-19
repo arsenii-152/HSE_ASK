@@ -29,6 +29,16 @@ def reset_db
   Rake::Task['db:migrate'].invoke
 end
 
+def create_user(user_data)
+  User.create!(
+    email: user_data[:email],
+    password: user_data[:password],
+    name: user_data[:name],
+    surname: user_data[:surname],
+    group: user_data[:group]
+  )
+end
+
 def create_users
   @users_data.each do |user_data|
   user = create_user(user_data)
@@ -37,15 +47,6 @@ def create_users
   end
 end
 
-def create_user(user_data)
-User.create!(
-    email: user_data[:email],
-    password: user_data[:password],
-    name: user_data[:name],
-    surname: user_data[:surname],
-    group: user_data[:group]
-    )
-end
 
 
 def create_quizzes
