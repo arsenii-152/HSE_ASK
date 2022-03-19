@@ -1,13 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question: MyText
-  body: MyText
   user_id: 1
   quiz_id: 1
+  title: MyText
+  type: 
+  body: MyText
+  type: 
 
 two:
-  question: MyText
-  body: MyText
   user_id: 1
   quiz_id: 1
+  title: MyText
+  type: 
+  body: MyText
+  type: 

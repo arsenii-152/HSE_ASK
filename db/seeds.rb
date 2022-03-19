@@ -19,8 +19,7 @@ def seed
   reset_db
   create_users
   create_quizzes
-  create_text_questions
-  create_text_answers
+  create_questions
 end
 
 def reset_db
@@ -56,28 +55,17 @@ def create_quizzes
     puts "Quiz created with id #{quiz.id}, name #{quiz.title}, description: #{quiz.description}. Takes #{quiz.requested_time} minutes to pass. Created by user #{quiz.user.name} with id #{quiz.user.id}"
   end
 
-def create_text_questions
+def create_questions
   quiz = Quiz.all.sample
 
   # quizzes.each do |quiz|
   5.times do
-
       user = quiz.user
-      text_question = quiz.text_questions.create!(user_id: user.id, title: "How r u doing?", field: "type here")
-      puts "#{text_question.type} which is: #{text_question.title} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
+      question = quiz.questions.create!(user_id: user.id, title: "How r u doing?", body: "type here")
+      puts " which is: #{question.title} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
     end
 end
 
-def create_text_answers
-  # Найти все вопросы всех пользователей
-  text_questions = TextQuestion.all
-  user = User.all.sample
 
-  # Создать для каждого вопроса от каждого пользователя ответ
-  text_questions.each do |text_question|
-      text_answer = text_question.text_answers.create!(text_response: "Yaix", user_id: user.id)
-      puts "User #{text_answer.user.name} answered '#{text_answer.text_response}' to the question with id #{text_answer.text_question.id} from quiz with id #{text_answer.text_question.quiz.id}. Quiz created by #{text_question.quiz.user.name}"
-    end
-  end
 
 seed
