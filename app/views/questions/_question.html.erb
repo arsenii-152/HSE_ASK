@@ -1,8 +1,9 @@
 <p>
-	<b>Title:</b>
+	<b>Question:</b>
 	<%= question.title %>
 </p>
 <p>
-	<b>Answer:</b>
-	<%= question.body %>
+	<%= link_to 'Destroy Question', [question.quiz, question],
+								:confirm => 'Are you sure?',
+								:method => :delete %>
 </p>

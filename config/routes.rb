@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :quizzes do
     resources :questions
   end
-  resources :questions
+  resources :questions do
+    resources :quizzes
+  end
+
   get 'answers', to: 'answers#index'
   get 'questions', to: 'questions#index'
   get 'quizzes', to: 'quizzes#index'

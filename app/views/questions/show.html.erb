@@ -24,6 +24,8 @@
   <strong>Body:</strong>
   <%= @question.body %>
 </p>
+<%= render 'form', answer: @answer %>
+
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
