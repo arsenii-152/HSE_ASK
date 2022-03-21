@@ -1,6 +1,8 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_user!, exept: %i[ index show ]
   before_action :set_quiz, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+
 
   # GET /quizzes or /quizzes.json
   def index
