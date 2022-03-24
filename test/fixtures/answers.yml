@@ -2,10 +2,10 @@
 
 one:
   result: MyText
-  user_id: 1
-  question_id: 1
+  user: one
+  question: one
 
 two:
   result: MyText
-  user_id: 1
-  question_id: 1
+  user: two
+  question: two

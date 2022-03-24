@@ -20,6 +20,7 @@ def seed
   create_users
   create_quizzes
   create_questions
+  create_answers
 end
 
 def reset_db
@@ -46,8 +47,6 @@ def create_users
   end
 end
 
-
-
 def create_quizzes
     user = User.all.sample
 
@@ -65,6 +64,18 @@ def create_questions
       puts " which is: #{question.title} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
     end
 end
+
+def create_answers
+  # Найти все вопросы всех пользователей
+  questions = Question.all
+  user = User.all.sample
+
+  # Создать для каждого вопроса от каждого пользователя ответ
+  questions.each do |question|
+      answer = question.answers.create!(result: "Well", user_id: user.id)
+      puts "User #{answer.user.name} answered the question with id #{answer.question.id} from quiz with id #{answer.question.quiz.id}. Quiz created by #{question.quiz.user.name}"
+    end
+  end
 
 
 

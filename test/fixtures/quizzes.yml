@@ -4,10 +4,10 @@ one:
   title: MyString
   description: MyText
   requested_time: 1
-  user_id: 1
+  user: one
 
 two:
   title: MyString
   description: MyText
   requested_time: 1
-  user_id: 1
+  user: two

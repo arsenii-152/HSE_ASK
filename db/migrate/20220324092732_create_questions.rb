@@ -1,11 +1,11 @@
 class CreateQuestions < ActiveRecord::Migration[6.1]
   def change
     create_table :questions do |t|
-      t.integer :user_id
-      t.integer :quiz_id
       t.text :title
-      t.string :type
       t.text :body
+      t.string :type
+      t.references :user, null: false, foreign_key: true
+      t.references :quiz, null: false, foreign_key: true
 
       t.timestamps
     end
