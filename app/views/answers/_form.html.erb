@@ -1,0 +1,10 @@
+<h3>Add a question:</h3>
+<%= form_for([@question, @question.answers.build]) do |answer_form| %>
+	<div class="field">
+		<%= answer_form.label :result %><br />
+		<%= answer_form.text_field :result %>
+	</div>
+  <div class="actions">
+  <%= question_form.submit %>
+</div>
+<% end %>

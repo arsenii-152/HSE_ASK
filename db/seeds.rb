@@ -50,10 +50,12 @@ end
 
 def create_quizzes
     user = User.all.sample
+    2.times do
 
     quiz = user.quizzes.create!(title: "Quiz app info", description: "quiz about is it ok to make app for quiz", requested_time: "5")
     puts "Quiz created with id #{quiz.id}, name #{quiz.title}, description: #{quiz.description}. Takes #{quiz.requested_time} minutes to pass. Created by user #{quiz.user.name} with id #{quiz.user.id}"
   end
+end
 
 def create_questions
   quiz = Quiz.all.sample
@@ -61,9 +63,9 @@ def create_questions
   # quizzes.each do |quiz|
     5.times do
       user = quiz.user
-      question = quiz.questions.create!(user_id: user.id, question: "How r u doing?", body: "Well or not?")
+      question = quiz.questions.create!(user_id: user.id, title: "How r u doing?", body: "Well or not?")
       # Лучше переименовать question.question в title
-      puts "Question: #{question.question} with options #{question.body} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
+      puts "Question: #{question.title} with options #{question.body} was genereated by #{quiz.user.name} in quiz with id #{quiz.id}"
     # end
   end
 end

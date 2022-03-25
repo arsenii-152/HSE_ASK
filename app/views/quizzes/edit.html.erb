@@ -1,0 +1,10 @@
+<h1>Editing Quiz</h1>
+
+<%= render 'form', quiz: @quiz %>
+
+<h2>Add Questions</h2>
+<%= render 'questions/form' %>
+
+
+<%= link_to 'Show', @quiz %> |
+<%= link_to 'Back', quizzes_path %>

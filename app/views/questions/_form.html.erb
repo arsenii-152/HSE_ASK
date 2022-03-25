@@ -1,0 +1,10 @@
+<h3>Add a question:</h3>
+<%= form_for([@quiz, @quiz.questions.build]) do |question_form| %>
+	<div class="field">
+		<%= question_form.label :title %><br />
+		<%= question_form.text_field :title %>
+	</div>
+  <div class="actions">
+  <%= question_form.submit %>
+</div>
+<% end %>

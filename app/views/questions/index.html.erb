@@ -1,33 +1,36 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Questions</title>
-</head>
-<body>
+<p id="notice"><%= notice %></p>
+
 <h1>Questions</h1>
+
 <table>
   <thead>
-  <tr>
-    <th>question</th>
-    <th>body</th>
-    <th>user_id</th>
-    <th>quiz_id</th>
-  </tr>
+    <tr>
+      <th>User</th>
+      <th>Quiz</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Body</th>
+      <th>Type</th>
+      <th>Type</th>
+
+      <th colspan="3"></th>
+    </tr>
   </thead>
 
   <tbody>
-  <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.question %></td>
-      <td><%= question.body %></td>
-      <td><%= question.user_id %></td>
-      <td><%= question.quiz_id %></td>
-    </tr>
-  <% end %>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.user_id %></td>
+        <td><%= question.quiz_id %></td>
+        <td><%= question.title %></td>
+        <td><%= question.type %></td>
+        <td><%= question.body %></td>
+        <td><%= question.type %></td>
+        <td><%= question.type %></td>
+
+      </tr>
+    <% end %>
   </tbody>
 </table>
-</body>
-</html>
+
+<br>
