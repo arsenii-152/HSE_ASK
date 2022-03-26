@@ -1,0 +1,2 @@
+class LongTextQuestion < Question
+end

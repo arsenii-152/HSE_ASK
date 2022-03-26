@@ -1,0 +1,2 @@
+class ShortTextQuestion < Question
+end
