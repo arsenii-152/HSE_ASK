@@ -10,8 +10,14 @@ Rails.application.routes.draw do
 
   resources :quizzes do
     resources :questions
-    resources :long_text_questions 
-
+    resources :long_text_questions
+    resources :short_text_questions
+    resources :multiple_choice_questions do
+      resources :question_options
+    end
+    resources :single_choice_questions do
+      resources :question_options
+    end
   end
 
 
