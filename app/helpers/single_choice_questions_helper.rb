@@ -1,0 +1,2 @@
+module SingleChoiceQuestionsHelper
+end

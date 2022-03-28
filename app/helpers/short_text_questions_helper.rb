@@ -1,0 +1,2 @@
+module ShortTextQuestionsHelper
+end
