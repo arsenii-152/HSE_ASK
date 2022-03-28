@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Quiz</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Body</th>
+      <th>Type</th>
+      <th>Type</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.user_id %></td>
+        <td><%= question.quiz_id %></td>
+        <td><%= question.title %></td>
+        <td><%= question.type %></td>
+        <td><%= question.body %></td>
+        <td><%= question.type %></td>
+        <td><%= question.type %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

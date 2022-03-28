@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :quizzes do
-    resources :questions do
-      resources :answers
-    end
+    resources :questions
+    resources :long_text_questions 
+
   end
 
 

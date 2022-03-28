@@ -1,0 +1,16 @@
+<h3>Add a question:</h3>
+<%= form_for([@quiz, @quiz.long_text_questions.build]) do |long_text_question_form| %>
+	<div class="field">
+		<%= long_text_question_form.label :title %><br />
+		<%= long_text_question_form.text_field :title %>
+	</div>
+	<div class="field">
+		<%= long_text_question_form.label :body %><br />
+		<%= long_text_question_form.text_field :body %>
+	</div>
+
+
+  <div class="actions">
+	  <%= long_text_question_form.submit %>
+	</div>
+<% end %>

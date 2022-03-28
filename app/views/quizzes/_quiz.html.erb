@@ -1,0 +1,11 @@
+<% @quizzes.each do |quiz| %>
+<div class="box">
+  <h1><%= quiz.title %></h1>
+  <p> <%= quiz.description %> </p>
+  <sub> <%= quiz.requested_time %> minutes to pass</sub>
+  <div class="stringer">
+    <td><%= link_to 'Show', quiz %></td>
+    <td><%= link_to 'Destroy', @quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </div>
+</div>
+<% end %>

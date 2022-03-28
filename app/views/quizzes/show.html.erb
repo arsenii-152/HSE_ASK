@@ -16,8 +16,9 @@
 </p>
 
 <h2>Questions:</h2>
-<%= render @quiz.questions %>
+<%= render @quiz.long_text_questions %>
 
-<%= render 'questions/form' %>
+<%= render 'long_text_questions/form' %>
+
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>

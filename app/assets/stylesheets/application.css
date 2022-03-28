@@ -48,11 +48,14 @@ pre {
 }
 
 a {
-  color: #000;
+  margin-right: 10px;
+  font-size: 26px;
+  text-decoration: none;
+  color: #1f69ff;
 }
 
 a:visited {
-  color: #666;
+  color: #1f69fe;
 }
 
 a:hover {
@@ -108,4 +111,16 @@ div.actions {
 
 label {
   display: block;
+}
+.starter {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+input {
+  background: #dfdfdf;
+  border-radius: 25px;
+  border-style: none;
+  padding: 12px 25px 12px 25px;
 }

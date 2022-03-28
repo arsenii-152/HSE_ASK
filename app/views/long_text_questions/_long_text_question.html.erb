@@ -1,0 +1,12 @@
+<p>
+	<b>Question:</b>
+	<%= long_text_question.title %>
+	<%= long_text_question.body %>
+
+</p>
+<p>
+	<%= link_to 'Destroy Question', [long_text_question.quiz, long_text_question],
+								:confirm => 'Are you sure?',
+								:method => :delete %>
+
+</p>
