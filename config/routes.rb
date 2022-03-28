@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # get 'posts/:id/comments', to: 'comments#index', as: 'post_comments'
+      get 'quizzes/:id/long_text_questions', to: 'long_text_questions#index'
+      get 'quizzes/:id/short_text_questions', to: 'short_text_questions#index'
+      get 'quizzes/:id/single_choice_questions', to: 'single_choice_questions#index'
+      get 'quizzes/:id/multiple_choice_questions', to: 'multiple_choice_questions#index'
       # post 'posts/:id/comments/create', to: 'comments#create', as: 'create_post_comment'
       # put 'comments/:id', to: 'comments#update', as: 'update_post_comment'
     end
@@ -10,14 +13,8 @@ Rails.application.routes.draw do
 
   resources :quizzes do
     resources :questions
-    resources :long_text_questions
-    resources :short_text_questions
-    resources :multiple_choice_questions do
-      resources :question_options
-    end
-    resources :single_choice_questions do
-      resources :question_options
-    end
+    resources :long_text_questions 
+
   end
 
 
