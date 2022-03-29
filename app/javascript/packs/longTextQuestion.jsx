@@ -9,7 +9,8 @@ const LongTextQuestion = ({quizId}) => {
     }
 
     function sendQuestion() {
-        const URL = `http://127.0.0.1:3000/api/v1/quizzes/${quizId}/long_text_questions/create`
+        const HOST = document.location.host
+        const URL = `http://${HOST}/api/v1/quizzes/${quizId}/long_text_questions/create`
         if (value) {
             fetch(URL, {
                 method: 'POST',
