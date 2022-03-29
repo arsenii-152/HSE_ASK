@@ -40,6 +40,8 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v6.1.4.6, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v6.1.4.6, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.0, RVM: ruby-2.7.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="babel-source (v5.8.35, RVM: ruby-2.7.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="babel-transpiler (v0.7.0, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.16, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.11.1, RVM: ruby-2.7.4) [gem]" level="application" />
@@ -50,9 +52,11 @@
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.36.0, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v4.1.0, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.9, RVM: ruby-2.7.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.2.5, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.8.1, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, RVM: ruby-2.7.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.8.1, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.15.5, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.0.0, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.10.0, RVM: ruby-2.7.4) [gem]" level="application" />
@@ -83,6 +87,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.6, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.11.1, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.1, RVM: ruby-2.7.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="react-rails (v1.11.0, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.2.1, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v3.0.1, RVM: ruby-2.7.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.5, RVM: ruby-2.7.4) [gem]" level="application" />
@@ -140,6 +145,9 @@
         <option value="model" />
         <option value="mongoid:devise" />
         <option value="rack_profiler:install" />
+        <option value="react:component" />
+        <option value="react:install" />
+        <option value="react:ujs" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
@@ -179,6 +187,9 @@
         <option value="model" />
         <option value="mongoid:devise" />
         <option value="rack_profiler:install" />
+        <option value="react:component" />
+        <option value="react:install" />
+        <option value="react:ujs" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
