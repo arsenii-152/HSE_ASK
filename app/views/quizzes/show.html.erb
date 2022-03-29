@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= javascript_pack_tag 'questionsTypeSelect' %>
 <p>
   <strong>Title:</strong>
   <%= @quiz.title %>
@@ -18,7 +18,8 @@
 <h2>Questions:</h2>
 <%= render @quiz.long_text_questions %>
 
-<%= render 'long_text_questions/form' %>
+<div id="questionsTypeSelect" data-quizId="<%= @quiz.id %>"></div>
+<%#= render 'long_text_questions/form' %>
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>

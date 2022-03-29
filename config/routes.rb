@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       get 'quizzes/:id/short_text_questions', to: 'short_text_questions#index'
       get 'quizzes/:id/single_choice_questions', to: 'single_choice_questions#index'
       get 'quizzes/:id/multiple_choice_questions', to: 'multiple_choice_questions#index'
-      # post 'posts/:id/comments/create', to: 'comments#create', as: 'create_post_comment'
+
+      post 'quizzes/:id/long_text_questions/create', to: 'long_text_questions#create'
+      post 'quizzes/:id/short_text_questions/create', to: 'short_text_questions#create'
       # put 'comments/:id', to: 'comments#update', as: 'update_post_comment'
     end
   end
