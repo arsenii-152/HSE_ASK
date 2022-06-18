@@ -1,5 +1,6 @@
 <h1>New Quiz</h1>
-
+<%= javascript_pack_tag 'questionsTypeSelect' %>
+  <div id="questionsTypeSelect" data-quizId=""><%= @quiz.id %></div>
 <%= render 'form', quiz: @quiz %>
 
 <%= link_to 'Back', quizzes_path %>

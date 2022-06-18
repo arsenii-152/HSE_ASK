@@ -2,29 +2,35 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'quizzes/:id/long_text_questions', to: 'long_text_questions#index'
-      get 'quizzes/:id/short_text_questions', to: 'short_text_questions#index'
-      get 'quizzes/:id/single_choice_questions', to: 'single_choice_questions#index'
-      get 'quizzes/:id/multiple_choice_questions', to: 'multiple_choice_questions#index'
-
-      post 'quizzes/:id/long_text_questions/create', to: 'long_text_questions#create'
-      post 'quizzes/:id/short_text_questions/create', to: 'short_text_questions#create'
-      # put 'comments/:id', to: 'comments#update', as: 'update_post_comment'
+      resources :quizzes
     end
   end
 
-  resources :quizzes do
-    resources :questions
-    resources :long_text_questions 
 
+
+  resources :quizzes do
+    resources :multiple_choice_questions do
+      resources :question_options do
+        resources :answer_options
+      end
+    end
+    resources :single_choice_questions do
+      resources :question_options do
+        resources :answer_options
+      end
+    end
+    resources :long_text_questions do
+      resources :answers
+    end
+    resources :short_text_questions do
+      resources :answers
+    end
   end
 
+  get '/multiple_choice_questions/create', to: 'quizzes#new', as: 'multiple_choice_question'
 
+  root to: 'quizzes#index'
 
-  get 'answers', to: 'answers#index'
-  get 'questions', to: 'questions#index'
-  get 'quizzes', to: 'quizzes#index'
-  get 'users', to: 'users#index'
   devise_for :users
 
 end

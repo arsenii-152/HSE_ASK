@@ -1,0 +1,14 @@
+<% @quiz.single_choice_questions.each do |sq| %>
+    <div class="orderer">
+      <div class="box">
+        <strong><p>Single Choice Question</p></strong>
+        <p><%= sq.title %></p>
+        <p><%= sq.id %></p>
+      </div>
+    </div>
+    <% sq.question_options.each do |qo| %>
+    <div class="box-option">
+      <p><%= qo.body %></p>
+    </div>
+    <% end %>
+<% end %>

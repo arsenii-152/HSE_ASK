@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<%= javascript_pack_tag 'questionsTypeSelect' %>
 <p>
   <strong>Title:</strong>
   <%= @quiz.title %>
@@ -16,10 +15,11 @@
 </p>
 
 <h2>Questions:</h2>
-<%= render @quiz.long_text_questions %>
+    <%= render @quiz.multiple_choice_questions, partial: 'multiple_choice_question' %>
+    <%= render @quiz.single_choice_questions, partial: 'single_choice_question' %>
+    <%= render @quiz.long_text_questions, partial: 'long_text_question' %>
+    <%= render @quiz.short_text_questions, partial: 'short_text_question' %>
 
-<div id="questionsTypeSelect" data-quizId="<%= @quiz.id %>"></div>
-<%#= render 'long_text_questions/form' %>
-
+<%= link_to 'Destroy', @quiz, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>

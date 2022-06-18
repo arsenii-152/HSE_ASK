@@ -1,0 +1,14 @@
+<% @quiz.multiple_choice_questions.each do |mq| %>
+    <div class="orderer">
+      <div class="box">
+        <strong><p>Multiple Choice Question</p></strong>
+        <p><%= mq.title %></p>
+        <p><%= mq.id %></p>
+      </div>
+    </div>
+    <% mq.question_options.each do |qo| %>
+    <div class="box-option">
+      <p><%= qo.body %></p>
+    </div>
+    <% end %>
+<% end %>

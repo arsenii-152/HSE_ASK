@@ -1,0 +1,9 @@
+<% @quiz.short_text_questions.each do |stq| %>
+    <div class="orderer">
+      <div class="box">
+        <strong><p>Short Text Question</p></strong>
+        <p><%= stq.title %></p>
+        <p><%= stq.id %></p>
+      </div>
+    </div>
+<% end %>

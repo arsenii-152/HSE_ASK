@@ -2,6 +2,8 @@
 
 <h1 class="starter" >Quizzes</h1>
 
-      <%= render 'quiz', quiz: @quiz %>
+<div class="orderer">
+  <%= render 'quiz', quiz: @quiz %>
+</div>
 
 <%= link_to 'New Quiz', new_quiz_path %>

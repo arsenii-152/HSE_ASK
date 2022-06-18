@@ -1,46 +1,38 @@
-class QuizzesController < ApplicationController
-  before_action :authenticate_user!, exept: %i[ index show ]
-  before_action :set_quiz, only: %i[ show edit update destroy ]
-  skip_before_action :verify_authenticity_token
+class Api::V1::QuizzesController < Api::V1::ApplicationController
 
 
   # GET /quizzes or /quizzes.json
   def index
     @quizzes = Quiz.all
+
+    render json: { quizzes: @quizzes }
+
   end
 
   # GET /quizzes/1 or /quizzes/1.json
   def show
-    # Находим Квиз
     @quiz = Quiz.find(params[:id])
+    @all_questions = @quiz.questions
+    @question_options = QuestionOption.all
+    @multiple_choice_question = @quiz.multiple_choice_questions
+    @single_choice_question = @quiz.single_choice_questions
 
-    # Находим все вопросы внутри и определяем вопрос
-    @single_choice_questions = @quiz.single_choice_questions
-    # @single_choice_question =  @quiz.single_choice_questions.find([:multiple_choice_questions_attributes][:quiz_id])
 
-    @multiple_choice_questions = @quiz.multiple_choice_questions
-    # @multiple_choice_question =  @quiz.multiple_choice_questions.find(params[:quiz_id])
-
-    @long_text_questions = @quiz.long_text_questions
-    # @long_text_question =  @quiz.long_text_questions.find(params[:quiz_id])
-
-    @short_text_questions = @quiz.short_text_questions
-    # @short_text_question =  @quiz.short_text_questions.find(params[:quiz_id])
-
+    render json: { quiz: @quiz, questions: @quiz.questions }
   end
 
   # GET /quizzes/new
   def new
+    @quiz = current_user.quizzes.build
 
-    @multiple_choice_question = @quiz.multiple_choice_questions.new
-    @single_choice_question = @quiz.single_choice_questions.new
-    @short_text_question = @quiz.short_text_questions.new
-    @long_text_question = @quiz.long_text_questions.new
-    @quiz = current_user.quizzes.new
+    @multiple_choice_question = @quiz.multiple_choice_questions.build
+    @single_choice_question = @quiz.single_choice_questions.build
+    @short_text_question = @quiz.short_text_questions.build
+    @long_text_question = @quiz.long_text_questions.build
 
 
-    @question_option_multi = @multiple_choice_question.question_options.new
-    @question_option_single = @single_choice_question.question_options.new
+    @question_option_multi = @multiple_choice_question.question_options.build
+    @question_option_single = @single_choice_question.question_options.build
 
     @question_options = @question_option_multi && @question_option_single
 
@@ -62,7 +54,11 @@ class QuizzesController < ApplicationController
 end
 
   def create
-    @quiz = current_user.quizzes.new(quiz_params)
+    @quiz = current_user.quizzes.create(quiz_params)
+    @multiple_choice_question = @quiz.multiple_choice_questions.create
+    @single_choice_question = @quiz.single_choice_questions.create
+    @short_text_question = @quiz.short_text_questions.create
+    @long_text_question = @quiz.long_text_questions.create
 
     respond_to do |format|
       if @quiz.save
@@ -104,9 +100,6 @@ private
     @quiz = Quiz.find(params[:id])
   end
 
-  # def single_choice_questions_params
-  #   params.require(:single_choice_questions).permit(:title, :body, :quiz_id)
-  # end
   # Only allow a list of trusted parameters through.
   def quiz_params
     params.require(:quiz).permit(:title, :description, :requested_time, multiple_choice_questions_attributes: [:id, :body, :type, :quiz_id], single_choice_questions_attributes: [:id, :body, :type, :quiz_id], long_text_questions_attributes: [:id, :body, :type, :quiz_id], short_text_questions_attributes: [:id, :body, :type, :quiz_id])
